@@ -1,0 +1,38 @@
+baseURL = "https://prabhujayakumar.dev/"
+languageCode = "en-us"
+title = "Prabhu Jayakumar"
+theme = ["beautifulhugo"]
+
+[Params]
+#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
+  subtitle = "Software Developer...Devops Enthusiast..."
+  mainSections = ["blog"]
+  logo = "img/my-dp.png" # Expecting square dimensions
+  favicon = "img/favicon.ico"
+  dateFormat = "January 2, 2006"
+  commit = false
+  rss = true
+  comments = true
+  readingTime = true
+  wordCount = true
+  useHLJS = true
+  socialShare = true
+  delayDisqus = true
+  showRelatedPosts = true
+  hideAuthor = true
+
+[Author]
+  name = "Prabhu Jayakumar"
+  email = "j.prabhu91@gmail.com"
+  github = "prabhu43"
+  linkedin = "prabhu43"
+  website = "https://www.thoughtworks.com/profiles/prabhu-jayakumar"
+
+[[menu.main]]
+    name = "me"
+    weight = 20 #The larger the weight, the more on the right this item will be
+    url = "/me" #URL address
+[[menu.main]]
+    name = "Blog"
+    weight = 10
+    url = "/"
