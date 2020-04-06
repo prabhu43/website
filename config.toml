@@ -4,11 +4,10 @@ title = "Prabhu Jayakumar"
 theme = ["beautifulhugo"]
 
 [Params]
-#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
-  subtitle = "Software Developer...Devops Enthusiast..."
+  subtitle = "Software Developer/Devops Enthusiast"
   mainSections = ["blog"]
   logo = "img/my-dp.png" # Expecting square dimensions
-  favicon = "img/favicon.ico"
+  favicon = "img/my-dp.png"
   dateFormat = "January 2, 2006"
   commit = false
   rss = true
@@ -16,7 +15,7 @@ theme = ["beautifulhugo"]
   readingTime = true
   wordCount = true
   useHLJS = true
-  socialShare = true
+  socialShare = false
   delayDisqus = true
   showRelatedPosts = true
   hideAuthor = true
