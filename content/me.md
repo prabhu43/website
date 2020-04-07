@@ -1,7 +1,6 @@
 ---
 title: "me"
 date: 2020-02-20T23:55:32+05:30
-draft: true
 ---
 
 - Full stack application developer as well as a Polyglot programmer.
