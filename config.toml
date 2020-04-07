@@ -1,7 +1,13 @@
-baseURL = "https://prabhujayakumar.dev/"
+baseURL = "https://prabhujayakumar.dev"
 languageCode = "en-us"
 title = "Prabhu Jayakumar"
-theme = ["beautifulhugo"]
+theme = "beautifulhugo"
+DefaultContentLanguage = "en"
+metaDataFormat = "yaml"
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
 
 [Params]
   subtitle = "Software Developer/Devops Enthusiast"
