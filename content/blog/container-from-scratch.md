@@ -1,6 +1,6 @@
 ---
 title: "Container From Scratch"
-date: 2020-02-20T23:44:40+05:30
+date: 2020-04-07T18:00:00+05:30
 ---
 
 Inspired from [Building a container from scratch in Go - Liz Rice (Microscaling Systems)](https://www.youtube.com/watch?v=Utf-A4rODH8)
