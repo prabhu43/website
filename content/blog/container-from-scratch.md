@@ -17,7 +17,7 @@ A process is created when a program is put into execution.
 
 How can we execute a program? What are the requirements to execute a program?
 
-A program needs libs, envs, and resources to be able to put into execution and thereby create a process.
+A program needs libs, envs and resources to be able to put into execution and thereby create a process. For example, to execute a python script, we need python binary and some python modules, python environments and resources like cpu, memory, disk.
 ![Process Execution Requirements](/img/process-execution-requirements.jpg)
 
 Let us consider a Web Application which consists of many microservices running on various languages and various versions. These microservices are nothing but a process at the backend.
