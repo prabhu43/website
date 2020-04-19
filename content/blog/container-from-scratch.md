@@ -104,6 +104,7 @@ func run() {
 	cmd.Run()
 }
 ```
+
 The above program executes the given arguments as a command. As you see below, "go run container run echo hello container" executes the command "echo hello container". It executes the command by creating a new process which can be considered as a container.
 
 ![](/gif/container-run.gif)
@@ -136,11 +137,7 @@ Now, if you change the hostname of the container, it will not affect the hostnam
 
 ![](/gif/container-hostname-fixed.gif)
 
-Another catch here is, the container is able to see all the processes running in the host machine.
-
-![](/gif/container-process-one.gif)
-
-A container should be able to see only the processes running in that container, which can be achieved by using PID namespace. Lets fork a child process to execute the command and then assign new PID namespace to it using syscall package in golang.
+But I want to assign the hostname automatically to the container from golang program using syscall `syscall.Sethostname([]byte("container-demo"))`. But where can I place this line in the above program, the process is created on `cmd.Run()` and exited on the same line. Hence, lets fork a child process and set hostname inside that.
 
 ```
 package main
@@ -176,7 +173,7 @@ func run() {
 	cmd.Stderr = os.Stderr
 
 	cmd.SysProcAttr = &syscall.SysProcAttr{
-		Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID,
+		Cloneflags: syscall.CLONE_NEWUTS,
 	}
 
 	cmd.Run()
@@ -185,6 +182,7 @@ func run() {
 func child() {
 	fmt.Printf("Running %v as PID %d \n", os.Args[2:], os.Getpid())
 
+	syscall.Sethostname([]byte("container-demo"))
 	cmd := exec.Command(os.Args[2], os.Args[3:]...)
 
 	cmd.Stdin = os.Stdin
@@ -193,6 +191,21 @@ func child() {
 
 	cmd.Run()
 }
+```
+
+![](/gif/container-hostname-set.gif)
+
+
+Another catch here is, the container is able to see all the processes running in the host machine.
+
+![](/gif/container-process-one.gif)
+
+A container should be able to see only the processes running in that container, which can be achieved by using PID namespace.
+
+```
+	cmd.SysProcAttr = &syscall.SysProcAttr{
+		Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID,
+	}
 ```
 
 ![](/gif/container-process-two.gif)
@@ -204,6 +217,7 @@ Even then, the container is able to see the processes of the host machine. The r
 func child() {
 	fmt.Printf("Running %v as PID %d \n", os.Args[2:], os.Getpid())
 
+	syscall.Sethostname([]byte("container-demo"))
 	cmd := exec.Command(os.Args[2], os.Args[3:]...)
 
 	cmd.Stdin = os.Stdin
@@ -244,6 +258,7 @@ Here, in this go program, I am creating a control group `prabhu` and giving 100m
 func child() {
 	fmt.Printf("Running %v as PID %d \n", os.Args[2:], os.Getpid())
 
+	syscall.Sethostname([]byte("container-demo"))
 	controlgroup()
 
 	cmd := exec.Command(os.Args[2], os.Args[3:]...)
