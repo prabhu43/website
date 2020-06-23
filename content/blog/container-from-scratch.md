@@ -3,13 +3,13 @@ title: "Container From Scratch"
 date: 2020-04-07T18:00:00+05:30
 ---
 
-Inspired from [Building a container from scratch in Go - Liz Rice (Microscaling Systems)](https://www.youtube.com/watch?v=Utf-A4rODH8)
-
 This is my first blog and I want to share my learnings about containers
 
-Before getting into containers, lets clearly understand what a process is?
+Container adoption to run enterprise applications softwares in production has been increasing drastically nowadays. And most of the container deployments are using docker. Docker became the defacto technology for running containerised applications. But what is docker built on? How it is containerising the applications? I will try to answer these questions in this article.
 
 <!--more-->
+
+Before getting into containers, lets clearly understand what a process is?
 
 A process is created when a program is put into execution.
 
@@ -298,3 +298,9 @@ By using cgroups, system administrators gain fine-grained control over allocatin
 Here, I have created a simple container with isolation of hostname, mount(`/proc`) and process tree using corresponding namespaces and also did memory management for the container using cgroups.
 
 Containers are just isolated groups of processes running on a single host and that isolation leverages several underlying technologies built into the Linux kernel line namespaces, cgroups and chroots.
+
+This is how Docker is containerising the applications with many other features like storing and transfering the files in terms of docker images.
+
+And Docker is not the only technology that helps to run containers. There are other options like Podman from RedHat, LXC Linux Containers and rkt from CoreOS(project closed now).
+
+Inspired from [Building a container from scratch in Go - Liz Rice (Microscaling Systems)](https://www.youtube.com/watch?v=Utf-A4rODH8)
