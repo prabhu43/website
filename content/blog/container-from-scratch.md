@@ -9,7 +9,7 @@ Container adoption to run enterprise applications softwares in production has be
 
 <!--more-->
 
-Before getting into containers, lets clearly understand what a process is?
+Before getting into containers, let's clearly understand what a process is?
 
 A process is created when a program is put into execution.
 
@@ -28,7 +28,7 @@ Thats not an easy task, ITS MERELY POSSIBLE
 
 But Why? What is the challenge in running all these services of the same web application in a physical machine?
 
-The problem is, suppose if the application has 2 Java services using different Java versions what will be the value for JAVA_HOME? There cant be 2 JAVA_HOME set in a single physical machine.
+The problem is, suppose if the application has 2 Java services using different Java versions what will be the value for JAVA_HOME? There can't be 2 JAVA_HOME set in a single physical machine.
 
 If we have N services to be run in a machine, we have to assign the port to each service such that no port collision occurs. Think about running 2 versions of postgres, pg10 on 5432 port and pg9.6 on 5433 port. So all the services should be aware of the port it is running on.
 
@@ -38,7 +38,7 @@ To sum up the above mentioned challenge in a single word, there is NO ISOLATION.
 
 Since there are different versions of libs and hence different envs are required, each and every service needs to be isolated from one another.
 
-In order to isolate the processes, people started using Virtual Machines. Lets see how Virtual Machines solve this problem.
+In order to isolate the processes, people started using Virtual Machines. Let's see how Virtual Machines solve this problem.
 ![Virtual Machine](/img/vm.jpg)
 
 Virtual machine is a separate guest OS created by an hypervisor running on a host machine.
@@ -54,7 +54,7 @@ Not just that, proper resource utilization becomes a tough task while using Virt
 
 The main reason behind this overhead in Virtual machines approach is that the hypervisor virtualizes an hardware by creating guest OS for each VM.
 
-All that we want is something which can isolate the libs, envs and resources without having to create separate OS. Why cant we use the resource management of the Host OS itself instead of virtualizing the hardwares which results in overhead?
+All that we want is something which can isolate the libs, envs and resources without having to create separate OS. Why can't we use the resource management of the Host OS itself instead of virtualizing the hardwares which results in overhead?
 
 Yes, we have something called "CONTAINER" which is capable of doing the same for us.
 
@@ -70,7 +70,7 @@ We now have a basic understanding of what containers are. Next step would be how
 
 To understand that, let us see how to create a container from scratch using linux technologies like namespace and cgroup.
 
-Lets create a simple go program which takes command as an argument and executes that command by creating a new process. Assume this go program as a docker. To execute a command in docker,  we will use "docker run" command, similarly, here we use "go run container.go run"
+Let's create a simple go program which takes command as an argument and executes that command by creating a new process. Assume this go program as a docker. To execute a command in docker,  we will use "docker run" command, similarly, here we use "go run container.go run"
 
 ```
 package main
@@ -109,7 +109,7 @@ The above program executes the given arguments as a command. As you see below, "
 
 ![](/gif/container-run.gif)
 
-Similarly lets create a process using `/bin/bash` and assign a dedicated hostname for that container. But changing the hostname inside the container, changed the hostname of the host machine as well.
+Similarly let's create a process using `/bin/bash` and assign a dedicated hostname for that container. But changing the hostname inside the container, changed the hostname of the host machine as well.
 
 ![](/gif/container-hostname.gif)
 
@@ -137,7 +137,7 @@ Now, if you change the hostname of the container, it will not affect the hostnam
 
 ![](/gif/container-hostname-fixed.gif)
 
-But I want to assign the hostname automatically to the container from golang program using syscall `syscall.Sethostname([]byte("container-demo"))`. But where can I place this line in the above program, the process is created on `cmd.Run()` and exited on the same line. Hence, lets fork a child process and set hostname inside that.
+But I want to assign the hostname automatically to the container from golang program using syscall `syscall.Sethostname([]byte("container-demo"))`. But where can I place this line in the above program, the process is created on `cmd.Run()` and exited on the same line. Hence, let's fork a child process and set hostname inside that.
 
 ```
 package main
@@ -211,7 +211,7 @@ A container should be able to see only the processes running in that container, 
 ![](/gif/container-process-two.gif)
 
 Even then, the container is able to see the processes of the host machine. The reason is `/proc`; the container is using the same root filesystem as that of the host machine. Hence a different root file system is to be used for container and mount `/proc` into it.
-`/containerfs` directory contains files of an operating system which has few binaries like python and core linux utilities. So mounting this directory as a root filesytem for container makes it self sufficient for linux utilities and not depend on host machine for binaries. It also provides separate environment for this container.
+`/containerfs` directory contains files of an operating system which has few binaries like python and core linux utilities. So mounting this directory as a root file system for container makes it self sufficient for linux utilities and not depend on host machine for binaries. It also provides separate environment for this container.
 
 ```
 func child() {
