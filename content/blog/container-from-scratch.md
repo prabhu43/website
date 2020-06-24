@@ -9,6 +9,8 @@ Container adoption to run enterprise applications softwares in production has be
 
 <!--more-->
 
+## Need for the container
+
 Before getting into containers, let's clearly understand what a process is?
 
 A process is created when a program is put into execution.
@@ -69,6 +71,8 @@ It provides OS level virtualization. Hence we can call it as "Lightweight VM"
 We now have a basic understanding of what containers are. Next step would be how do we create it? I know many of us use docker to create containers using docker run command. But, is that the only option? No, there are few other tools like lxc, podman, etc. How the containers are created using these tools? What is the backend process?
 
 To understand that, let us see how to create a container from scratch using linux technologies like namespace and cgroup.
+
+## Simple Container in Golang
 
 Let's create a simple go program which takes command as an argument and executes that command by creating a new process. Assume this go program as a docker. To execute a command in docker,  we will use "docker run" command, similarly, here we use "go run container.go run"
 
@@ -297,9 +301,11 @@ By using cgroups, system administrators gain fine-grained control over allocatin
 
 Here, I have created a simple container with isolation of hostname, mount(`/proc`) and process tree using corresponding namespaces and also did memory management for the container using cgroups.
 
-Containers are just isolated groups of processes running on a single host and that isolation leverages several underlying technologies built into the Linux kernel line namespaces, cgroups and chroots.
+## Conclusion
 
-This is how Docker is containerising the applications with many other features like storing and transfering the files in terms of docker images.
+Containers are just isolated groups of processes running on a single host and that isolation leverages several underlying technologies built into the Linux kernel like namespaces, cgroups and chroots.
+
+This is how Docker is containerising the applications with many other features like storing and transferring the files in terms of docker images.
 
 And Docker is not the only technology that helps to run containers. There are other options like Podman from RedHat, LXC Linux Containers and rkt from CoreOS(project closed now).
 
