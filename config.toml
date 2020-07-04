@@ -9,6 +9,7 @@ pygmentsStyle = "trac"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
+disqusShortname = "prabhujayakumar"
 
 [Params]
   subtitle = "Software Developer/Devops Enthusiast"
