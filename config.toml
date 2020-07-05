@@ -23,10 +23,11 @@ disqusShortname = "prabhujayakumar"
   readingTime = true
   wordCount = true
   useHLJS = true
-  socialShare = false
+  socialShare = true
   delayDisqus = true
   showRelatedPosts = true
   hideAuthor = true
+
 
 [Author]
   name = "Prabhu Jayakumar"
