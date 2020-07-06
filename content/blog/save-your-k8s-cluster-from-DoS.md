@@ -13,9 +13,11 @@ While containers have become the norm for deploying applications, kubernetes has
 
 Consider a Kubernetes cluster with 3 worker nodes having a memory of 10GB each. Suppose the developers end up deploying some pods by mistake which consumes almost all the cpu and memory available in the node. Hence causing resource contention in the others application pods which serves traffic from consumers. This could also be caused when hackers inject high resource consuming pods intentionally into the system.
 
-To understand this situation better, assume a node having 10GB of allocatable memory for containers and there are 5 application pods sharing the available memory. Each application pod on an average consumes 1GB of memory which makes the node to run at 50% - 60% memory utilization. Now deploying a pod that consumes 10GB of memory in the same node will cause noisy neighbor problem. This results in resource contention in other application pods which inturn either increase the latency of those services or in the worse case make the services go unavailable.
+To understand this situation better, assume a node having 10GB of allocatable memory for containers and there are 5 application pods sharing the available memory. Each application pod on an average consumes 1GB of memory which makes the node to run at 50% to 60% memory utilization. Now deploying a pod that consumes 10GB of memory in the same node will cause noisy neighbor problem. This results in resource contention in other application pods which in turn either increase the latency of those services or in the worse case make the services go unavailable.
 
 This might also happen when the developer commits a mistake in the code which leaks the memory and increase the memory usage steadily.
+
+![resource-contention](/img/resourcequota.png)
 
 ## Effective Resource Management in Kubernetes
 
@@ -116,7 +118,7 @@ When another pod having memory limit of 9GB is deployed, it will fail as it will
 
 ![exceed-resource-quota](/img/exceed-resource-quota.png)
 
-Cluster administrators should configure the values in ResourceQuota so that it does not over-utilize the nodes.
+Cluster administrators should configure the values in ResourceQuota so that it does not overutilize the nodes.
 
 In kubernetes cluster, mentioning resource requests and limits in the pod spec is not mandatory and if its not mentioned, it means no limit for resources to be consumed by pod. It can consume resources as much as available in the node. Hence it is not recommended to skip the resource requests and limits in pod spec. 
 
