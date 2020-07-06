@@ -17,7 +17,7 @@ To understand this situation better, assume a node having 10GB of allocatable me
 
 This might also happen when the developer commits a mistake in the code which leaks the memory and increase the memory usage steadily.
 
-![resource-contention](/img/resourcequota.png)
+![resource-contention](/img/resourcequota.jpg)
 
 ## Effective Resource Management in Kubernetes
 
