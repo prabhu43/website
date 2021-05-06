@@ -16,3 +16,5 @@ date: 2020-02-20T23:55:32+05:30
 - [Penetration Workshop - SQL Injection](https://www.youtube.com/watch?v=jjPIL5XBltA&t=4203s)
 
 - [Kubernetes in Production: Lessons Learnt](https://www.youtube.com/watch?v=vtfxW4iflvA)
+
+- [Chaos Engineering](https://www.youtube.com/watch?v=6Sv1zbJD4tA)
