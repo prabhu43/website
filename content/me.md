@@ -12,9 +12,11 @@ date: 2020-02-20T23:55:32+05:30
 - Open-source contributor.
 
 ## Certifications
-
 - [Certified Kubernetes Administrator](https://www.credly.com/badges/5c0a27a9-9f5b-4e28-be8e-abf24443f09f)
 - [AWS Certified Cloud Practitioner](https://www.credly.com/badges/70fd2520-2ff5-4998-a532-461f331598fe)
+- [AWS Certified Solutions Architect Associate](https://www.credly.com/badges/5efc72fe-c83d-4a4d-8f7a-94c1c98010de)
+
+![](/img/certs.png#certificates)
 
 ## Tech Talks:
 
