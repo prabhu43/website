@@ -18,7 +18,7 @@ disqusShortname = "prabhujayakumar"
   # favicon = "img/my-dp.png"
   dateFormat = "January 2, 2006"
   commit = false
-  rss = true
+  rss = false
   comments = true
   readingTime = true
   wordCount = true
@@ -27,13 +27,14 @@ disqusShortname = "prabhujayakumar"
   delayDisqus = true
   showRelatedPosts = true
   hideAuthor = true
+  showApplauseButton = true
 
 
 [Author]
   name = "Prabhu Jayakumar"
   email = "j.prabhu91@gmail.com"
   github = "prabhu43"
-  linkedin = "prabhu43"
+  linkedin = "prabhujayakumar"
   website = "https://www.thoughtworks.com/profiles/prabhu-jayakumar"
 
 [[menu.main]]

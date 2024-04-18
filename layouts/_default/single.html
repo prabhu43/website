@@ -14,9 +14,11 @@
         {{ end }}
 
         <hr/>
+        {{ if .Site.Params.showApplauseButton }}
         <div>
-          <applause-button style="float: left; width: 58px; height: 58px;"/>
+          <applause-button url="{{ .Permalink }}" initialClapCount=1 style="float: left; width: 58px; height: 58px;"/>
         </div>
+        {{ end }}
         {{ if $.Param "socialShare" }}
             <div id="social-share" style="float: right">
               <div class="list-inline footer-links">
