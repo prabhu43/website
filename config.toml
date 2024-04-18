@@ -12,7 +12,7 @@ pygmentsCodefencesGuessSyntax = true
 disqusShortname = "prabhujayakumar"
 
 [Params]
-  subtitle = "Software Developer/Devops Enthusiast"
+  subtitle = "Developer | Devops Engineer | SRE"
   mainSections = ["blog"]
   # logo = "img/my-dp.png" # Expecting square dimensions
   # favicon = "img/my-dp.png"

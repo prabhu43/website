@@ -1,18 +1,19 @@
 ---
 title: "Demystifying Inter-AZ Data Transfer Costs in K8s: Strategies for Savings"
 date: 2024-04-18T15:35:14+05:30
-draft: true
 ---
 
 Throughout my six years of experience working with various K8s clusters across different environments, I've noticed a tendency to overlook Inter-AZ data transfer, resulting in significant expenses. 
 
-InterAZ (Inter-Availability Zone) data transfer costs within Amazon EKS (Elastic Kubernetes Service) pertain to charges associated with transferring data between availability zones within the same AWS (Amazon Web Services) region. These costs fluctuate depending on the volume of data transferred and the region in which the EKS cluster is deployed.
+InterAZ (Inter-Availability Zone) data transfer costs within AWS EKS pertain to charges associated with transferring data between availability zones within the same AWS region. These costs fluctuate depending on the volume of data transferred and the region in which the EKS cluster is deployed.
+
+<!--more-->
 
 Understanding and managing InterAZ data transfer costs in EKS is crucial for optimizing the overall cost efficiency of running Kubernetes workloads in AWS while ensuring high availability and reliability across availability zones
 
 > Inter AZ Data Transfer cost in AWS, GCP and Azure: $0.01 per GB
 
-<!--more-->
+
 
 ## Hidden Cost of High Availability
 
