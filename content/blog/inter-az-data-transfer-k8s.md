@@ -102,9 +102,13 @@ Kubernetes' team proposed [an enhancement](https://github.com/kubernetes/enhance
 
 Now, We can set `.spec.trafficDistribution: PreferClose` in the K8s Service to ensure endpoints within the same zone are used by kube-proxy while routing requests.[(Reference)](https://kubernetes.io/docs/reference/networking/virtual-ips/#traffic-distribution)
 
+## Bonus
+
+Aside from saving costs, limiting Inter-AZ data transfer offers two additional advantages as a bonus:
+- Improving latency of requests between 2 services by keeping the traffic within a zone
+- Increasing the system's resilience in the event of an Availability Zone failure
 
 ## References
-
 - [New traffic distribution feature](https://kubernetes.io/docs/concepts/services-networking/service/#trafic-distribution)
 - [EndpointSlice Controller throwing error](https://github.com/kubernetes/endpointslice/blob/master/topologycache/topologycache.go#L328)
 - [PR for the Traffic Routing Preference](https://github.com/kubernetes/kubernetes/pull/123487)
